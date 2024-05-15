@@ -17,7 +17,7 @@ pipeline{
          }
          stage('Checkout from Git'){
              steps{
-                 git branch: 'main', url: 'https://github.com/Ashfaque-9x/a-swiggy-clone.git'
+                 git branch: 'main', url: 'https://github.com/rahulkincloudo/a-swiggy-clone.git'
              }
          }
          stage("Sonarqube Analysis "){
@@ -44,21 +44,21 @@ pipeline{
              steps {
                  sh "trivy fs . > trivyfs.txt"
              }
-         }
+         }/*
           stage("Docker Build & Push"){
              steps{
                  script{
                     withDockerRegistry(credentialsId: 'dockerhub', toolName: 'docker'){   
                         sh "docker build -t swiggy-clone ."
-                        sh "docker tag swiggy-clone ashfaque9x/swiggy-clone:latest "
-                        sh "docker push ashfaque9x/swiggy-clone:latest "
+                        sh "docker tag swiggy-clone iamrsk/swiggy-clone:latest "
+                        sh "docker push iamrsk/swiggy-clone:latest "
                      }
                  }
              }
          }
          stage("TRIVY"){
              steps{
-                 sh "trivy image ashfaque9x/swiggy-clone:latest > trivyimage.txt" 
+                 sh "trivy image iamrsk/swiggy-clone:latest > trivyimage.txt" 
              }
          }
           stage('Deploy to Kubernets'){
@@ -73,7 +73,7 @@ pipeline{
                      }
                  }
              }
-         }
+         }*/
 
 
 
