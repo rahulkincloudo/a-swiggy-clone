@@ -61,7 +61,7 @@ pipeline{
                  sh "trivy image iamrsk/swiggy-clone:latest > trivyimage.txt" 
              }
          }
-          stage('Deploy to Kubernets'){
+          stage('Deploy to Kubernetes'){
              steps{
                  script{
                      dir('Kubernetes') {
@@ -73,7 +73,17 @@ pipeline{
                      }
                  }
              }
-         }
+         }/*
+          post {
+          always {
+           emailext attachLog: true,
+               subject: "'${currentBuild.result}'",
+               body: "Project: ${env.JOB_NAME}<br/>" +
+                   "Build Number: ${env.BUILD_NUMBER}<br/>" +
+                   "URL: ${env.BUILD_URL}<br/>",
+               to: 'ashfaque.s510@gmail.com',                              
+               attachmentsPattern: 'trivyfs.txt,trivyimage.txt'
+        }*/
 
 
 
