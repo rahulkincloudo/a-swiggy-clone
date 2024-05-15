@@ -60,7 +60,7 @@ pipeline{
              steps{
                  sh "trivy image iamrsk/swiggy-clone:latest > trivyimage.txt" 
              }
-         }/*
+         }
           stage('Deploy to Kubernets'){
              steps{
                  script{
